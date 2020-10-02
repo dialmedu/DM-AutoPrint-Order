@@ -68,12 +68,15 @@ en la peticion pero actualmente ese componente de seguridad no se aplica.
 Si deseas colaborar descarga.
 
 Netbeans 12 : https://netbeans.apache.org/download/index.html
+
 Ireport 5.6: https://sourceforge.net/projects/ireport/files/iReport/iReport-5.6.0/iReport-5.6.0.zip/download
+
 Ireporte requiere Java 7: https://www.oracle.com/java/technologies/javase/javase7-archive-downloads.html
 
-Es un proyecto con MAVEN asi que Neteans pedira que descargue las dependencias es un proceso automatico por el IDE;
-la configuración de Irepor es necesario editar un archivo `iReport-5.6.0\etc\ireport.conf` agregar la ruta de
-instalación de Java 7 en Windows se veria así `jdkhome="C:\Program Files\Java\jdk1.7.0_80"`, ejecutar usando 
+Es un proyecto con MAVEN asi que Netbeans pedira que descargue las dependencias es un proceso automatico por el IDE.
+
+Para la configuración de IReport es necesario editar el archivo `iReport-5.6.0\etc\ireport.conf` agregar la ruta de
+instalación de Java 7 en Windows se verá así `jdkhome="C:\Program Files\Java\jdk1.7.0_80"`, ejecutar usando 
 `iReport-5.6.0\bin\ireport.exe`.
 
 
