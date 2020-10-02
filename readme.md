@@ -1,26 +1,10 @@
 # Instalación
 
-Los archivos de configuración para el proyecto en JAVA, se encuentran en la carpeta /soruce/ el 
-db.config_example renombrarlo o crear el db.config y agregar sus datos de acceso a base
-de datos, para el receptor del Webhook se realiza sobre el mismo archivo order_new.php, 
-ya que es un simple script que captura la orden y la guarda en base de datos.
+## Instalación Base de Datos.
 
-# Reportes
+Crea una base de datos o usar una existente y agregar la siguiente sentencia SQL, esto
+creará una tabla llamadas pedidos.
 
-La impresion de los tickets se realiza usando JASPERT REPORT, este es una libreria y herramienta que 
-permite crear plantillas para impresion usando IReport Desing (requiere Java 7) y JaspertReport.jar el 
-sdk para poder crear e imprimir desde java.
-
-# Webhook
-
-Para poder guardar los pedidos se requiere que se agrege archivo order_new.php en alguna ruta y esta
-se le pase a `Woocommerce` > `Settings` > `Advance` > `Webhook`. Woocommerce genera un token que es enviado
-en la peticion pero actualmente ese componente de seguridad no se aplica.
-
-# Sql
-
-Para no hacer mas complejo este codigo con migraciones, dejo aqui el sql de la tabla en la que se guardarán
-datos del pedido recibidos por el webhook.
 ```sql
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
@@ -36,7 +20,50 @@ CREATE TABLE `pedidos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-# Herramientas de Desarollo
+## Instalación WEBHOOK
+
+Agregar en servidor el contenido de la carpeta `webhook\`, abirir el archivo `new_orden.php` y
+agregar sus datos de conexion a base de datos en la linea.
+
+`$mysqli = new mysqli("HOST", "USER", "PASS", "DB");`
+
+Crear un subdominio que apunte hacia esa carpeta, ejemplo: `webhook.worpdress.org` agregar en la 
+configuracion de woocommerce en `Woocommerce` > `Settings` > `Advance` > `Webhook` creand un webhook
+que se active el crear nueva orden y la ruta hacia el archivo, ejemplo: `webhook.worpdress.com\new_orden.php`.
+
+## Instalacion .JAR
+
+Los archivos de configuración para el proyecto en JAVA, se encuentran en la carpeta `/source/` el 
+archivo `db.config_example` renombrarlo a `db.config` y agregar sus datos de acceso a base
+de datos. Luego ejecutar podra ejecutar `WOOAP.JAR`.
+
+La carpeta para el .jar deberá tener la siguiente estructura.
+
+```
+wooap\
+... source/
+    ... db.config
+    ... PedidoReporte.jaspert
+... WOOAP.jar
+
+```
+
+# Desarollo
+
+## Reportes
+
+La impresion de los tickets se realiza usando JASPERT REPORT, este es una libreria y herramienta que 
+permite crear plantillas para impresion usando IReport Desing (requiere Java 7) y JaspertReport.jar el 
+sdk para poder crear e imprimir desde java.
+
+## Webhook
+
+Para poder guardar los pedidos se requiere que se agrege archivo order_new.php en alguna ruta y esta
+se le pase a `Woocommerce` > `Settings` > `Advance` > `Webhook`. Woocommerce genera un token que es enviado
+en la peticion pero actualmente ese componente de seguridad no se aplica.
+
+
+## Herramientas de Desarollo
 
 Si deseas colaborar descarga.
 
