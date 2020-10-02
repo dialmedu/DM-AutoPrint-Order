@@ -75,3 +75,25 @@ Es un proyecto con MAVEN asi que Neteans pedira que descargue las dependencias e
 la configuración de Irepor es necesario editar un archivo `iReport-5.6.0\etc\ireport.conf` agregar la ruta de
 instalación de Java 7 en Windows se veria así `jdkhome="C:\Program Files\Java\jdk1.7.0_80"`, ejecutar usando 
 `iReport-5.6.0\bin\ireport.exe`.
+
+
+## Metodo de Impresion.
+
+El envio de los datos para impresión de realiza sobre la clases `Controller` en el paquete `io.github.dialmedu.wooap.autoprint`
+el metodos resiva el resultado de la consulta y agregar los parametros que solicite el reporte.
+
+```
+public static void printPedido(String reporteFile, ResultSet pedido) throws SQLException{
+    boolean ver = false;
+    boolean imprimir = true;
+    Map parametros =  new HashMap();
+    parametros.put("pedido_numero",  pedido.getString("pedido_numero"));
+    parametros.put("cantidad", pedido.getString("cantidad"));
+    parametros.put("cliente_nombre", pedido.getString("cliente_nombre"));
+    ManagerReportJaspert.createReport(reporteFile,parametros,"PedidoReporte",ver,imprimir);
+}
+```
+
+Si crea otro reporte con los mismos parametros puede usar el mismo metodo y pasar el
+nombre del reporte en para argumento `String reportFile`, si crea otro reporte con distintos
+parametros crear otro metodo con esta estructura.
