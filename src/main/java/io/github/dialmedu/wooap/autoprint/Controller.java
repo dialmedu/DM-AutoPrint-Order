@@ -52,10 +52,7 @@ public class Controller {
                 ManagerReportJaspert.MESSAGE_ERROR = "";
                 while(pedidos.next()){
                    response = true; 
-                   printPedido("PedidoReporte.jasper",
-                           pedidos.getString("pedido_numero"),
-                           pedidos.getString("cliente_nombre"),
-                           pedidos.getDouble("cantidad"));
+                   printPedido("PedidoReporte.jasper", pedidos );
                 }
                 String sql_update = "UPDATE `pedidos` SET printed = TRUE  WHERE pedidos.printed IS FALSE";
                 con.Ejecutar(sql_update);
@@ -66,15 +63,14 @@ public class Controller {
         return response;
     }
     
-    public static void printPedido(String reporteFile,String pedido, String nombre, double cantidad){
-        if(pedido.isEmpty()){
-            return;
-        }
+    public static void printPedido(String reporteFile, ResultSet pedido) throws SQLException{
+        boolean ver = false;
+        boolean imprimir = true;
         Map parametros =  new HashMap();
-        parametros.put("pedido_numero", pedido);
-        parametros.put("cantidad", nombre);
-        parametros.put("cliente_nombre", String.valueOf(cantidad));
-        ManagerReportJaspert.createReport(reporteFile,parametros,"PedidoReporte",true,true);
+        parametros.put("pedido_numero",  pedido.getString("pedido_numero"));
+        parametros.put("cantidad", pedido.getString("cantidad"));
+        parametros.put("cliente_nombre", pedido.getString("cliente_nombre"));
+        ManagerReportJaspert.createReport(reporteFile,parametros,"PedidoReporte",ver,imprimir);
     }
     
 }
