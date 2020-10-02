@@ -22,14 +22,14 @@ CREATE TABLE `pedidos` (
 
 ## Instalación WEBHOOK
 
-Agregar en servidor el contenido de la carpeta `webhook\`, abirir el archivo `new_orden.php` y
+Agregar en servidor el contenido de la carpeta `webhook\`, abirir el archivo `orden_new.php` y
 agregar sus datos de conexion a base de datos en la linea.
 
 `$mysqli = new mysqli("HOST", "USER", "PASS", "DB");`
 
 Crear un subdominio que apunte hacia esa carpeta, ejemplo: `webhook.worpdress.org` agregar en la 
 configuracion de woocommerce en `Woocommerce` > `Settings` > `Advance` > `Webhook` creand un webhook
-que se active el crear nueva orden y la ruta hacia el archivo, ejemplo: `webhook.worpdress.com\new_orden.php`.
+que se active el crear nueva orden y la ruta hacia el archivo, ejemplo: `webhook.worpdress.com\orden_new.php`.
 
 ## Instalacion .JAR
 
@@ -48,7 +48,7 @@ wooap\
 
 ```
 
-# Desarollo
+# Desarrollo
 
 ## Reportes
 
