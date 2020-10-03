@@ -22,13 +22,13 @@ CREATE TABLE `pedidos` (
 
 ## Instalación WEBHOOK
 
-Agregar en servidor el contenido de la carpeta `webhook\`, abirir el archivo `orden_new.php` y
-agregar sus datos de conexion a base de datos en la linea.
+Agregar en servidor el contenido de la carpeta `webhook\`, abrir el archivo `orden_new.php` y
+agregar sus datos de conexion a base de datos en la linea. 
 
 `$mysqli = new mysqli("HOST", "USER", "PASS", "DB");`
 
 Crear un subdominio que apunte hacia esa carpeta, ejemplo: `webhook.worpdress.org` agregar en la 
-configuracion de woocommerce en `Woocommerce` > `Settings` > `Advance` > `Webhook` creand un webhook
+configuracion de woocommerce en `Woocommerce` > `Settings` > `Advance` > `Webhook` creando un webhook
 que se active el crear nueva orden y la ruta hacia el archivo, ejemplo: `webhook.worpdress.com\orden_new.php`.
 
 ## Instalacion .JAR
@@ -82,8 +82,8 @@ instalación de Java 7 en Windows se verá así `jdkhome="C:\Program Files\Java\
 
 ## Metodo de Impresion.
 
-El envio de los datos para impresión de realiza sobre la clases `Controller` en el paquete `io.github.dialmedu.wooap.autoprint`
-el metodos resiva el resultado de la consulta y agregar los parametros que solicite el reporte.
+El envio de los datos para impresión de realiza sobre la clase `Controller` en el paquete `io.github.dialmedu.wooap.autoprint`
+el metodo recibe el resultado de la consulta y agregar los parametros que solicita el reporte.
 
 ```
 public static void printPedido(String reporteFile, ResultSet pedido) throws SQLException{
@@ -98,5 +98,5 @@ public static void printPedido(String reporteFile, ResultSet pedido) throws SQLE
 ```
 
 Si crea otro reporte con los mismos parametros puede usar el mismo metodo y pasar el
-nombre del reporte en para argumento `String reportFile`, si crea otro reporte con distintos
+nombre del reporte en `String reportFile`, si crea otro reporte con distintos
 parametros crear otro metodo con esta estructura.
