@@ -100,3 +100,10 @@ public static void printPedido(String reporteFile, ResultSet pedido) throws SQLE
 Si crea otro reporte con los mismos parametros puede usar el mismo metodo y pasar el
 nombre del reporte en `String reportFile`, si crea otro reporte con distintos
 parametros crear otro metodo con esta estructura.
+
+# Te Gusto
+
+Convertimos café en codigo, donar para comprar mas café.
+
+![alt text](https://image.flaticon.com/icons/png/128/3398/3398900.png)
+Click Aquí: https://mpago.li/2Cg1nzm
