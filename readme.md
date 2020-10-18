@@ -1,4 +1,4 @@
-DM-AutoPrint-Order de un desarrollo en Java y PHP, que permite imprirmir automaticamnte las nuevas ordenes en la impresora por defecto del equipo ( Windwos, Mac, Linux ) por medio de una aplicación en Java que cada 60 segundos buscara los nuevos ordenes, un webhook en php que recibe la orden y la guarda en una tabla de base de datos para saber si fue o no impresa.
+DM-AutoPrint-Order de un desarrollo en Java y PHP, que permite imprirmir automaticamente las nuevas ordenes de Woocommerce en la impresora por defecto del equipo ( Windows, Mac, Linux ) por medio de una aplicación en Java que cada 60 segundos buscara los nuevos ordenes, un webhook en php que recibe la orden y la guarda en una tabla de base de datos para saber si fue o no impresa.
 
 **Nota**: *Esta implementación se encuentra en desarrollo, crea tu Issue correspondiente para conocer dudas o propuestas de nuevas funciones, aun no es un plugin de wordpress asi que la instalación de sebe realizar con acceso FTP o CPanel , como tambien acceso a crear base de datos o tablas. Sigue leyendo para conocer más.*
 
